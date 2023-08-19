@@ -1,3 +1,3 @@
 # golang-basics
 
-* Repo to write down notes as i learn
+* Repo to write down notes as I learn
