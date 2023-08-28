@@ -35,22 +35,22 @@ package main
 import "fmt"
 
 func nameOfTheFunction(arg1 int, arg2 string) (int, string) {
-  return arg1, arg2
+	return arg1, arg2
 }
 
 func main() {
-  sum, str := nameOfTheFunction(10, "Hello")
-  fmt.Printf("The params are %v %v \n", sum, str)
+	sum, str := nameOfTheFunction(10, "Hello")
+	fmt.Printf("The params are %v %v \n", sum, str)
 
-  _, str = nameOfTheFunction(10, "World")
-  fmt.Printf("Print the string ignoring the first arg %v \n", str)
+	_, str = nameOfTheFunction(10, "World")
+	fmt.Printf("Print the string ignoring the first arg %v \n", str)
 }
 
 ```
 
 ### Functions with named return values
 
-In this function we name the return values in the method signature. With named return types, we can 
+In this function we name the return values in the method signature. With named return types, we can
 simply `return` without defining the names of the variables
 
 ```go
@@ -67,6 +67,7 @@ func main() {
 }
 
 ```
+
 ### Variadic function
 
 This function type uses an ellipsis(`...`) to define a number of args of same type as an Optional.
@@ -79,23 +80,45 @@ import "fmt"
 
 func withVariadicArgs(values ...int) bool {
 
-  for _, value := range values {
-    fmt.Println(value)
-  }
+	for _, value := range values {
+		fmt.Println(value)
+	}
 
-  if len(values) == 0 {
-    return false
-  } else {
-    return true
-  }
+	if len(values) == 0 {
+		return false
+	} else {
+		return true
+	}
 }
 
 func main() {
-  isExecuted := withVariadicArgs(10, 20, 30)
-  fmt.Printf("The function executed with 3 variadic args %v", isExecuted)
+	isExecuted := withVariadicArgs(10, 20, 30)
+	fmt.Printf("The function executed with 3 variadic args %v", isExecuted)
 
-  isExecuted = withVariadicArgs()
-  fmt.Printf("The function executed with 0 variadig args %v", isExecuted)
+	isExecuted = withVariadicArgs()
+	fmt.Printf("The function executed with 0 variadig args %v", isExecuted)
 }
 
 ```
+
+### Anonymous functions
+
+An anonymous function does not have a name. It can be assigned to variable and invoked as needed.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	x := func(a int, b int) int {
+		return a + b
+	}
+	fmt.Printf("Sum of values %v \n", x(20, 30))
+}
+```
+
+### Higher order functions
+
+Sending function as a parameter of another function can help simplify complex if-else statements.
+For an example of higher order functions, check out : [this example](main/higherorderfunctions.go)
