@@ -169,9 +169,71 @@ import "fmt"
 
 func main() {
 
-  i := 10
-  fmt.Printf("Address of the datatype and accessing pointer %T %v \n", &i, &i)
-  fmt.Printf("Dereferencing the pointer, %T, %v", *(&i), *(&i))
+	i := 10
+	fmt.Printf("Address of the datatype and accessing pointer %T %v \n", &i, &i)
+	fmt.Printf("Dereferencing the pointer, %T, %v", *(&i), *(&i))
 }
 
 ```
+
+### Pointers
+
+Pointers allow data manipulation and passing by value thereby allowing efficient memory utilization
+
+```go
+package main
+
+import "fmt"
+
+func addressAndDeReference() {
+	i := 10
+	ptr := &i
+	fmt.Printf("Print dataType and address of pointer %T %v \n", ptr, ptr)
+	fmt.Println("De-reference to access value of pointer ", *ptr)
+}
+
+func modify(value *string) {
+	*value = "newValue"
+}
+
+func main() {
+	addressAndDeReference()
+	value := "currentValue"
+	fmt.Println(value)
+	modify(&value)
+	fmt.Println(value)
+}
+```
+
+Output of this program would be :
+
+```text
+Print dataType and address of pointer *int, 0xcd3vc
+De-reference to access value of pointer 10
+currentValue
+newValue
+```
+
+### Pointer Datastructures
+
+Maps and slices are pointers by default. Any modification to these datastructures modifies the
+parent.
+
+### Struct
+
+Structs are equivalent to Objects in Java. However, in Golang we can pass an object by both pass by
+value or pass by reference.
+
+For example of how to declare and use structs, see - [this example](main/structs.go)
+
+### Method Set
+
+The set of methods defined in a go program or the interfaces is called a "Method Set"
+
+## Interfaces
+
+- No keywords are required to implement an interface
+- Similar to pre-java8 interface, no constants allowed only declaration of methodSets without func
+  keyword
+- Interface methods cannot have a function body
+- An implementation has to implement all the methods in an interface
