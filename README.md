@@ -237,3 +237,8 @@ The set of methods defined in a go program or the interfaces is called a "Method
   keyword
 - Interface methods cannot have a function body
 - An implementation has to implement all the methods in an interface
+
+## Deep dive into slices
+
+ - For an example, see [slices.go](main/slices.go)
+ - Construct a stack using slice [stack.go](main/stack.go)
