@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"slices"
 )
 
 /*
@@ -15,6 +16,8 @@ func main() {
 	printSlice()
 	isArrayEqual := compareSlice([]int{1, 2, 3, 4}, []int{1, 2, 3, 4, 5})
 	fmt.Printf("Result of array comparision %v \n", isArrayEqual)
+	sortArrOrSlice()
+
 }
 
 func initSlice() {
@@ -76,4 +79,10 @@ func compareSlice(a, b []int) bool {
 		return false
 	}
 
+}
+
+func sortArrOrSlice() {
+	sortMe := []int{21, 51, 22, 54, 33}
+	slices.Sort(sortMe)
+	fmt.Printf("Sorted Array %v \n", sortMe)
 }
